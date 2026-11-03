@@ -175,7 +175,7 @@ h1 .it{font-size:1.06em;line-height:.84}
 .pdi{position:relative;display:grid;grid-template-columns:1fr 1fr;max-height:calc(100dvh - 2rem);background:var(--bg2);border:1px solid var(--b);border-radius:10px;overflow:hidden}
 #pd[open] .pdi{animation:pop .6s var(--ease)}@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.97)}}
 .pdm{position:relative;min-height:440px;overflow:hidden}
-.pdm .ph,.pdm img,.pdm video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.pdm video{object-fit:contain;background:#000}
+.pdm .ph,.pdm img,.pdm video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.pdm img,.pdm video{object-fit:contain;background:#000}
 .pdc{padding:clamp(1.6rem,3.5vw,3rem);overflow:auto;display:flex;flex-direction:column;gap:1.1rem}
 .pdc h3{font-size:clamp(2.4rem,4.5vw,4rem)}.pdc .pds{color:var(--o2);font-weight:400}.pdc p{color:var(--m)}
 .pdc h4{margin-top:.6rem;font:500 .7rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--m)}
@@ -407,7 +407,7 @@ form .btn{width:100%;height:3.8rem;margin-top:.6rem}
  .vl,.fqw .sh{position:static}
  .srow{grid-template-columns:2.5rem 1fr 3rem;padding:1.9rem .9rem}.sd{grid-column:2/-1}.si{grid-column:3;grid-row:1;width:3rem;height:3rem}
  .pj{flex-basis:42vw}
- .pdi{grid-template-columns:1fr;overflow:auto}.pdm{min-height:240px}
+ .pdi{grid-template-columns:1fr;overflow:auto}.pdm{min-height:0;height:min(62dvh,600px)}
  .steps{grid-template-columns:1fr 1fr;gap:3rem 2rem}
  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--b)}
  .cl{border-right:0;border-bottom:1px solid var(--b)}
@@ -442,7 +442,7 @@ form .btn{width:100%;height:3.8rem;margin-top:.6rem}
  #pd{width:100%;max-height:92dvh;margin:auto 0 0}
  .pdi{max-height:92dvh;border-radius:16px 16px 0 0;border-bottom:0}
  #pd[open] .pdi{animation:sheet .5s var(--ease)}
- .pdm{min-height:0;aspect-ratio:4/3}
+ .pdm{height:min(58dvh,520px)}
  .fbig{font-size:26vw}
  #ckl{grid-template-columns:1fr}.cki{min-height:3.6rem}
  .ckr{grid-template-columns:auto minmax(0,1fr);align-items:center;gap:1.1rem 1.3rem}.ckr .btn{grid-column:1/-1;width:100%}
@@ -727,15 +727,16 @@ form .btn{width:100%;height:3.8rem;margin-top:.6rem}
    DATI — modifica qui testi, piani e progetti
    Per sostituire un placeholder del portfolio con una foto o un video reale,
    compila img:'cartella/foto.jpg' oppure video:'cartella/video.mp4' nel progetto.
+   Con entrambi, img fa da copertina (poster) finché il video non parte.
    ========================================================= */
 /* inc: riga iniziale in evidenza (es. "Tutto lo Starter, più:") */
-const PLANS=[{n:'Starter',p:790,d:'Tutto quello che serve per crescere con continuità.',f:['20 post e 4 Reels al mese','Stories quotidiane','Gestione commenti e messaggi','Instagram e Facebook','Report dettagliato e riunione mensile']},
-{n:'Growth',p:997,d:'La gestione completa: contenuti, pubblicità e riprese.',inc:'Tutto lo Starter, più:',f:['Campagne Meta Ads gestite da noi (budget pubblicitario escluso)','1 sessione foto/video on-site al mese','Anche TikTok, oltre a Instagram e Facebook','Call strategica ogni 2 settimane','Assistenza prioritaria su WhatsApp']}];
+const PLANS=[{n:'Starter',p:450,d:'Video veri della tua attività, ogni settimana, senza pensarci tu.',f:['1 sessione di riprese al mese da te','8–10 Reels al mese, montati con sottotitoli e musica','Piano editoriale, testi e pubblicazione','Instagram e Facebook','Profilo sistemato all’avvio: bio, copertine e storie in evidenza','Report mensile con i numeri reali']},
+{n:'Growth',p:790,d:'Più video, più canali e la pubblicità che porta nuovi clienti.',inc:'Tutto lo Starter, più:',f:['12–15 Reels al mese, con 2 sessioni di riprese','Anche TikTok, oltre a Instagram e Facebook','Stories 3 volte a settimana','Gestione di commenti e messaggi','1 campagna Meta Ads al mese gestita da noi (budget pubblicitario escluso)','Call mensile per pianificare insieme il mese successivo']}];
 
 /* "Trova il tuo piano": la scelta è in qzPick() */
 const QUIZ=[
 {q:'Da dove parti?',o:['Parto da zero, o quasi','Ho già i social, ma non crescono','Voglio emergere nel mio settore']},
-{q:'Cosa ti serve di più?',o:['Contenuti curati e costanti','Contenuti, pubblicità e riprese','Anche sito, branding o automazioni AI']},
+{q:'Cosa ti serve di più?',o:['Video costanti, ogni settimana','Più video, TikTok e pubblicità','Anche sito, branding o automazioni AI']},
 {q:'Quante attività vuoi far crescere?',o:['Una sola','Più sedi o più marchi']}];
 
 /* Check-up: voci che il visitatore spunta */
@@ -750,7 +751,7 @@ const SERVICES=[
 {t:'AI & Automazioni',g:'Meno lavoro ripetitivo, più tempo per i clienti.',d:'Integriamo strumenti di intelligenza artificiale e automazioni nei processi di ogni giorno: risposte, raccolta richieste, contenuti e organizzazione interna.',b:'Processi più rapidi e ordinati, senza complicazioni tecniche.',ic:'<rect x="13" y="13" width="22" height="22" rx="3"/><path d="M19 13V7M24 13V7M29 13V7M19 41v-6M24 41v-6M29 41v-6M13 19H7M13 24H7M13 29H7M41 19h-6M41 24h-6M41 29h-6"/><path d="M20 29l4-10 4 10M21.6 25.5h4.8"/>'}];
 
 const PROJECTS=[
-{c:'Jel Wash',ini:'JW',s:'Automotive · Car wash',k:'video',gx:'28%',gy:'30%',tags:['Video production','Contenuti promozionali','Più sedi'],d:'Produzione video e contenuti promozionali per il settore automotive e car wash, con attività su più sedi.',l:'Contenuti pensati per presentare il servizio in modo chiaro e riconoscibile, con una comunicazione coerente tra le diverse sedi.',img:'',video:''},
+{c:'Jel Wash',ini:'JW',s:'Automotive · Car wash',k:'video',gx:'28%',gy:'30%',tags:['Video production','Contenuti promozionali','Più sedi'],d:'Produzione video e contenuti promozionali per il settore automotive e car wash, con attività su più sedi.',l:'Contenuti pensati per presentare il servizio in modo chiaro e riconoscibile, con una comunicazione coerente tra le diverse sedi.',img:'media/jel-wash.jpg',video:'media/jel-wash.mp4'},
 {c:'Ardesia Mangini',ini:'AM',s:'Ardesia · B2B',k:'social',gx:'70%',gy:'25%',tags:['Contenuti social','Prodotto','B2B'],d:'Creazione di contenuti social e valorizzazione dei prodotti in ardesia, con attenzione alla comunicazione commerciale e al mercato B2B.',l:'Un racconto visivo che mette al centro il materiale e i prodotti, pensato per parlare anche a clienti professionali.',img:'',video:''},
 {c:'Fruttissima',ini:'FR',s:'Ortofrutta',k:'video',gx:'35%',gy:'70%',tags:['Video','Contenuti social'],d:'Produzione di video e contenuti per la comunicazione social di un’attività nel settore ortofrutticolo.',l:'Contenuti che valorizzano i prodotti e rendono la comunicazione quotidiana più viva e riconoscibile.',img:'',video:''},
 {c:'Peretti Tende',ini:'PT',s:'Sito web aziendale',k:'web',gx:'75%',gy:'35%',tags:['Web design','Sviluppo sito'],d:'Progettazione e realizzazione del sito web aziendale.',l:'Un sito pensato per presentare l’azienda e la sua offerta in modo chiaro, curato e facile da consultare.',img:'',video:''},
@@ -775,7 +776,7 @@ $('#mqi').innerHTML=[...MQ,...MQ].map(s=>`<span>${s}</span>`).join('');
 $('#sv').innerHTML=SERVICES.map((s,i)=>`<a class="srow rv" href="#contatto" data-s="${s.t}" data-spot><span class="sn">0${i+1}</span><span><h3>${s.t}</h3><em>${s.g}</em></span><span class="sd"><p>${s.d}</p><p class="sb"><b>Per te</b>${s.b}</p></span><span class="si" aria-hidden="true"><svg viewBox="0 0 48 48">${s.ic}</svg></span></a>`).join('');
 
 /* --- portfolio --- */
-const media=(p,big)=>p.video?(big?`<video src="${p.video}" controls playsinline autoplay aria-label="${p.c}: ${p.s}"></video>`:`<video src="${p.video}" muted loop playsinline preload="metadata" aria-label="${p.c}: ${p.s}"></video>`)
+const media=(p,big)=>p.video?(big?`<video src="${p.video}"${p.img?` poster="${p.img}"`:''} controls playsinline autoplay aria-label="${p.c}: ${p.s}"></video>`:`<video src="${p.video}"${p.img?` poster="${p.img}"`:''} muted loop playsinline preload="metadata" aria-label="${p.c}: ${p.s}"></video>`)
  :p.img?`<img src="${p.img}" alt="${p.c}: ${p.s}" loading="lazy">`
  :`<div class="ph" role="img" aria-label="${p.c}: ${p.s}" style="--gx:${p.gx};--gy:${p.gy}"><span class="phl">${p.ini}</span>${p.k=='web'?'<div class="browser"><i></i><i></i><i></i><i></i><i></i><i></i></div>':p.k=='social'?'<div class="tiles">'+'<i></i>'.repeat(9)+'</div>':'<div class="phone"></div>'}</div>`;
 $('#pf').innerHTML=PROJECTS.map((p,i)=>`<article class="pj rv" style="--d:${Math.min(i,4)*.08}s"><button class="pjb" type="button" data-i="${i}" aria-label="Apri il progetto ${p.c}"><div class="pm" data-spot>${media(p)}<span class="kd">${KIND[p.k]}</span><span class="cur" aria-hidden="true">Apri</span></div><div class="pi"><span class="pn">0${i+1}</span><h3>${p.c}</h3><p>${p.s}</p><ul>${p.tags.map(t=>`<li>${t}</li>`).join('')}</ul><span class="po" aria-hidden="true">${ARROW}</span></div></button></article>`).join('');

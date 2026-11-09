@@ -797,7 +797,7 @@ form .btn{width:100%;height:3.8rem;margin-top:.6rem}
   </div>
  </div>
  <div class="wbc rv">
-  <div><p><b>Ogni sito ha il suo preventivo.</b> In una call gratuita capiamo cosa ti serve, poi ti mandiamo una proposta chiara e senza impegno.</p><button type="button" class="wbpj" id="wbpj">Guarda il progetto Peretti Tende</button></div>
+  <div><p><b>Ogni sito ha il suo preventivo.</b> In una call gratuita capiamo cosa ti serve, poi ti mandiamo una proposta chiara e senza impegno.</p></div>
   <div class="wbca">
    <a class="btn" href="#contatto" data-s="Web Design &amp; Development"><span class="tx"><span>Chiedi il preventivo</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
    <a class="btn g" href="https://wa.me/393392488218?text=Ciao%20Creativ%20Agency%2C%20vorrei%20informazioni%20per%20un%20sito%20web" target="_blank" rel="noopener"><span class="tx"><span>Scrivici su WhatsApp</span></span></a>
@@ -962,7 +962,6 @@ const PROJECTS=[
 {c:'Jel Wash',ini:'JW',s:'Automotive · Car wash',k:'video',gx:'28%',gy:'30%',tags:['Video production','Contenuti promozionali','Più sedi'],d:'Produzione video e contenuti promozionali per il settore automotive e car wash, con attività su più sedi.',l:'Contenuti pensati per presentare il servizio in modo chiaro e riconoscibile, con una comunicazione coerente tra le diverse sedi.',img:'media/jel-wash.jpg',video:'media/jel-wash.mp4'},
 {c:'Fruttissima',ini:'FR',s:'Ortofrutta',k:'video',gx:'35%',gy:'70%',tags:['Video','Contenuti social'],d:'Produzione di video e contenuti per la comunicazione social di un’attività nel settore ortofrutticolo.',l:'Contenuti che valorizzano i prodotti e rendono la comunicazione quotidiana più viva e riconoscibile.',img:'media/fruttissima.jpg',video:'media/fruttissima.mp4'},
 {c:'Ardesia Mangini',ini:'AM',s:'Ardesia · B2B',k:'social',gx:'70%',gy:'25%',tags:['Contenuti social','Prodotto','B2B'],d:'Creazione di contenuti social e valorizzazione dei prodotti in ardesia, con attenzione alla comunicazione commerciale e al mercato B2B.',l:'Un racconto visivo che mette al centro il materiale e i prodotti, pensato per parlare anche a clienti professionali.',img:'',video:''},
-{c:'Peretti Tende',ini:'PT',s:'Sito web aziendale',k:'web',gx:'75%',gy:'35%',tags:['Web design','Sviluppo sito'],d:'Progettazione e realizzazione del sito web aziendale.',l:'Un sito pensato per presentare l’azienda e la sua offerta in modo chiaro, curato e facile da consultare.',img:'',video:''},
 {c:'Francesca40',ini:'F40',s:'Video per i social',k:'video',gx:'25%',gy:'40%',tags:['Ideazione','Video','Social'],d:'Ideazione e produzione di contenuti video per la comunicazione social.',l:'Dall’idea al montaggio: format video costruiti per catturare l’attenzione e raccontare un’identità.',img:'',video:''},
 {c:'Tiziana Rebora',ini:'TR',s:'Festa dello Sport · Evento',k:'video',gx:'65%',gy:'65%',tags:['Video','Evento','Promozione'],d:'Produzione di contenuti video dedicati alla comunicazione e alla promozione di un evento: la Festa dello Sport.',l:'Video pensati per far conoscere l’evento e coinvolgere il pubblico.',img:'',video:''}];
 
@@ -1077,7 +1076,6 @@ $$('[data-s]').forEach(a=>a.addEventListener('click',()=>{$('#p').value=a.datase
  const play=(n=1)=>{go(n,n<4);if(n<4)tm=setTimeout(()=>play(n+1),D)};
  wli.forEach((li,i)=>$('button',li).onclick=()=>{stop();go(i+1)});
  $('#wbr').onclick=()=>{stop();play()};
- $('#wbpj').onclick=()=>{const i=PROJECTS.findIndex(p=>p.c=='Peretti Tende');$(`.pjb[data-i="${i}"]`)?.click()};
  wb.style.setProperty('--wbd',D+'ms');
  if(RM){go(4);$('#wbr').hidden=true;return}
  go(1);new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();play()}},{threshold:.45}).observe($('.wbv',wb));

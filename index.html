@@ -628,6 +628,52 @@ form .btn{width:100%;height:3.8rem;margin-top:.6rem}
 [data-theme=light] .sv .srow{box-shadow:inset 0 1px 0 var(--hi),0 5px 0 -1px #d9c9b6,0 10px 0 -2px #cbb8a2,0 14px 0 -3px #bda78f,0 40px 70px -28px rgba(120,60,30,.35)}
 @media (max-width:760px){.sv .srow{top:calc(74px + var(--i)*12px);border-radius:22px;padding:1.5rem 1.1rem;margin-top:1.1rem}}
 @media (prefers-reduced-motion:reduce){.sv .srow{position:relative;top:auto;transform:none;filter:none}}
+
+/* Siti web · mockup più ricco: sito vero (menù, piatti, recensioni, info) che scorre nella finestra */
+.wbp{display:block;padding:0;height:calc(100% - 5.2cqw);overflow:hidden}
+.wbsc{display:flex;flex-direction:column;gap:3.2cqw;padding:3cqw 2.6cqw 3cqw;transform:translateY(0);transition:transform 1.6s var(--ease)}
+.wbv .tx{color:transparent;border-radius:.5cqw;background:linear-gradient(rgba(var(--tc),.15),rgba(var(--tc),.15)) 0 60%/100% 70% no-repeat;transition:color .7s,background-size .7s var(--ease)}
+.st2 .wbv .tx,.st2 .tx{color:inherit;background-size:100% 0}
+.wbn{gap:2cqw}.wbn .wbm{font:500 max(1.25cqw,.42rem)/1 Barlow,sans-serif;letter-spacing:.04em;color:var(--pp)}
+.wbht{gap:1.15cqw;padding:2.6cqw}
+.wbey{font:600 max(1.1cqw,.4rem)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--g2)}
+.wbh{font-size:6.2cqw}
+.wbsr{display:flex;align-items:center;gap:.8cqw;font-size:max(1.3cqw,.42rem);letter-spacing:.15em;color:rgba(var(--tc),.25);transition:color .7s}
+.wbsr em{font:400 max(1.15cqw,.4rem)/1 Barlow,sans-serif;letter-spacing:.02em;font-style:normal;color:#C9D3CC}
+.st2 .wbsr{color:var(--g2)}
+.wbbts{display:flex;gap:1cqw;flex-wrap:wrap}
+.st2 .wbbt.o{background:none;border:1px solid rgba(243,234,219,.4);color:var(--pp)}
+.wbim{min-height:24cqw}
+.wbmn,.wbrv{padding:2.4cqw}
+.wbs2{display:block;margin-bottom:1.8cqw;font:900 3.3cqw/1 var(--cd);text-transform:uppercase;color:var(--pp)}
+.wbmn .wbco{padding:0}
+.wbth{aspect-ratio:4/3}
+.wbdn{display:flex;flex-direction:column;align-items:flex-start;gap:.5cqw;white-space:nowrap;font:600 max(1.25cqw,.42rem)/1.2 Barlow,sans-serif;color:var(--pp)}
+.wbdn .wbpz{color:var(--g2)}
+.wbrc{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8cqw}
+.wbrc>div{display:flex;flex-direction:column;gap:.9cqw;padding:1.8cqw;border-radius:1cqw;border:1px dashed rgba(var(--tc),.25);transition:background .7s,border-color .7s}
+.wbav{display:flex;align-items:center;gap:.8cqw;margin-top:.6cqw}.wbav i:first-child{flex:none;width:2.8cqw;height:2.8cqw;border-radius:50%;background:rgba(var(--tc),.16)}.wbav .wbl{width:40%}
+.st2 .wbrc>div{background:rgba(255,255,255,.04);border-color:transparent}
+.st2 .wbav i:first-child{background:linear-gradient(135deg,var(--g2),#C97B3A)}
+.wbin{display:grid;grid-template-columns:repeat(3,1fr);gap:2cqw;padding:2.4cqw}
+.wbin>div{display:flex;flex-direction:column;gap:1cqw}
+.wbin b{align-self:flex-start;font:900 2.2cqw/1 var(--cd);text-transform:uppercase;color:var(--pp)}
+.wbmap{position:relative;height:9cqw;border-radius:1cqw;background:repeating-linear-gradient(35deg,rgba(var(--tc),.08) 0 1px,transparent 1px 2.2cqw),repeating-linear-gradient(-55deg,rgba(var(--tc),.08) 0 1px,transparent 1px 3cqw);transition:background .7s}
+.wbmap i{position:absolute;left:52%;top:30%;width:2.4cqw;height:2.4cqw;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:rgba(var(--tc),.3)}
+.st2 .wbmap{background:linear-gradient(160deg,transparent 55%,rgba(70,130,160,.35) 56%),repeating-linear-gradient(35deg,rgba(243,234,219,.1) 0 1px,transparent 1px 2.2cqw),#1F332C}
+.st2 .wbmap i{background:#E2675A}
+.wbin .wbbt{align-self:flex-start;font-size:max(1.1cqw,.4rem)}
+.st2 .wbin .wbbt{background:#25D366;color:#fff}
+.wbft{display:flex;align-items:center;justify-content:space-between;padding:2cqw .4cqw 0;border-top:1px solid rgba(var(--tc),.12)}
+.wbft .lg{width:8cqw;height:1.6cqw;border-radius:1cqw;background:rgba(var(--tc),.16)}.st2 .wbft .lg{background:var(--g2)}
+.wbk:before{z-index:1}
+.wb:not(.st2) .wbv .tx{color:transparent!important}
+/* la pagina scorre: a metà sui contenuti, poi online va su e giù da sola */
+.st3 .wbsc{transform:translateY(calc(var(--wsh,0px)*-.42))}
+.st4 .wbsc{animation:wbsc 13s ease-in-out .8s infinite}
+@keyframes wbsc{0%{transform:translateY(calc(var(--wsh,0px)*-.42))}30%,42%{transform:translateY(calc(var(--wsh,0px)*-1))}72%,84%{transform:translateY(0)}100%{transform:translateY(calc(var(--wsh,0px)*-.42))}}
+@media (max-width:640px){.wbv{aspect-ratio:4/5}.wbw{width:90%;left:5%;top:5%;height:86%}.wbph{width:24%;right:3%;bottom:4%}.wbto{max-width:72%;left:4%;bottom:4%}.wbsc{gap:4cqw}.wbh{font-size:7.4cqw}.wbs2{font-size:4.2cqw}.wbim{min-height:30cqw}}
+@media (prefers-reduced-motion:reduce){.st4 .wbsc{animation:none}}
 </style>
 </head>
 <body>
@@ -766,14 +812,29 @@ form .btn{width:100%;height:3.8rem;margin-top:.6rem}
   <div class="wbv" aria-hidden="true">
    <div class="wbw">
     <div class="wbb"><i></i><i></i><i></i><span class="wbu"><b class="u1">bozza.html</b><b class="u2"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>tuaattivita.it</b></span><span class="wbon">Online</span></div>
-    <div class="wbp">
-     <div class="wbk wbn" data-l="menu"><i class="lg"></i><i></i><i></i><i></i><i class="ct"></i></div>
+    <div class="wbp"><div class="wbsc">
+     <div class="wbk wbn" data-l="menu"><i class="lg"></i><span class="wbm tx">Menù</span><span class="wbm tx">Chi siamo</span><span class="wbm tx">Recensioni</span><span class="wbm tx">Contatti</span><i class="ct"></i></div>
      <div class="wbhe">
-      <div class="wbk wbht" data-l="titolo + bottone"><b class="wbh"><span>Cucina<br>di mare</span></b><i class="wbl"></i><i class="wbl s"></i><span class="wbbt">Prenota un tavolo</span></div>
+      <div class="wbk wbht" data-l="titolo + bottone"><span class="wbey tx">Osteria di mare · dal porto</span><b class="wbh"><span>Cucina<br>di mare</span></b><i class="wbl"></i><i class="wbl s"></i><span class="wbsr">★★★★★<em class="tx">Recensioni Google</em></span><span class="wbbts"><span class="wbbt">Prenota un tavolo</span><span class="wbbt o">Vedi il menù</span></span></div>
       <div class="wbk wbim" data-l="foto"><img src="media/web-camogli.jpg" alt="" loading="lazy"></div>
      </div>
-     <div class="wbk wbco" data-l="piatti"><div><span class="wbth"><img src="media/web-focaccia.jpg" alt="" loading="lazy"></span><i class="wbl"></i><i class="wbl s"></i></div><div><span class="wbth"><img src="media/web-scoglio.jpg" alt="" loading="lazy"></span><i class="wbl"></i><i class="wbl s"></i></div><div><span class="wbth"><img src="media/web-terrazza.jpg" alt="" loading="lazy"></span><i class="wbl"></i><i class="wbl s"></i></div></div>
-    </div>
+     <div class="wbk wbmn" data-l="menù"><b class="wbs2"><span class="tx">Il menù di oggi</span></b><div class="wbco">
+      <div><span class="wbth"><img src="media/web-pesto.jpg" alt="" loading="lazy"></span><span class="wbdn"><span class="tx">Trofie al pesto</span><span class="tx wbpz">€ 14</span></span><i class="wbl s"></i></div>
+      <div><span class="wbth"><img src="media/web-scoglio.jpg" alt="" loading="lazy"></span><span class="wbdn"><span class="tx">Spaghetti allo scoglio</span><span class="tx wbpz">€ 18</span></span><i class="wbl s"></i></div>
+      <div><span class="wbth"><img src="media/web-focaccia.jpg" alt="" loading="lazy"></span><span class="wbdn"><span class="tx">Focaccia al formaggio</span><span class="tx wbpz">€ 10</span></span><i class="wbl s"></i></div>
+     </div></div>
+     <div class="wbk wbrv" data-l="recensioni"><b class="wbs2"><span class="tx">Dicono di noi</span></b><div class="wbrc">
+      <div><span class="wbsr">★★★★★</span><i class="wbl"></i><i class="wbl"></i><i class="wbl s"></i><span class="wbav"><i></i><i class="wbl s"></i></span></div>
+      <div><span class="wbsr">★★★★★</span><i class="wbl"></i><i class="wbl"></i><i class="wbl s"></i><span class="wbav"><i></i><i class="wbl s"></i></span></div>
+      <div><span class="wbsr">★★★★★</span><i class="wbl"></i><i class="wbl"></i><i class="wbl s"></i><span class="wbav"><i></i><i class="wbl s"></i></span></div>
+     </div></div>
+     <div class="wbk wbin" data-l="info e contatti">
+      <div><b class="tx">Orari</b><i class="wbl"></i><i class="wbl s"></i><i class="wbl"></i></div>
+      <div><b class="tx">Dove siamo</b><span class="wbmap"><i></i></span></div>
+      <div><b class="tx">Prenota</b><i class="wbl"></i><span class="wbbt">WhatsApp</span></div>
+     </div>
+     <div class="wbft"><i class="lg"></i><i class="wbl s"></i></div>
+    </div></div>
    </div>
    <div class="wbsw"><i></i><i></i><i></i></div>
    <div class="wbph"><div class="wbpn"><i class="wbp1"></i><div class="wbp2"><img src="media/web-camogli.jpg" alt="" loading="lazy"><b>Cucina<br>di mare</b></div><div class="wbp3"><span><img src="media/web-pesto.jpg" alt="" loading="lazy"></span><span><img src="media/web-scoglio.jpg" alt="" loading="lazy"></span></div><span class="wbpb">Prenota un tavolo</span><span class="wbwa"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 19z"/></svg></span></div></div>
@@ -1071,7 +1132,8 @@ $$('[data-s]').forEach(a=>a.addEventListener('click',()=>{$('#p').value=a.datase
 (()=>{const wb=$('#wb'),wli=$$('#wbs li'),D=2800;let tm=0;
  const go=(n,auto)=>{wli.forEach((li,i)=>{li.classList.toggle('on',i+1==n);$('button',li).setAttribute('aria-expanded',i+1==n)});
   for(let i=2;i<5;i++)wb.classList.toggle('st'+i,n>=i);
-  wb.classList.remove('play');if(auto){void wb.offsetWidth;wb.classList.add('play')}};
+  wb.classList.remove('play');if(auto){void wb.offsetWidth;wb.classList.add('play')};wsh()};
+ const wsh=()=>{const sc=$('.wbsc',wb),pg=$('.wbp',wb);if(sc&&pg)wb.style.setProperty('--wsh',Math.max(0,sc.offsetHeight-pg.clientHeight)+'px')};addEventListener('resize',wsh);
  const stop=()=>{clearTimeout(tm);wb.classList.remove('play')};
  const play=(n=1)=>{go(n,n<4);if(n<4)tm=setTimeout(()=>play(n+1),D)};
  wli.forEach((li,i)=>$('button',li).onclick=()=>{stop();go(i+1)});

@@ -15,7 +15,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D0D0D'/%3E%3Ctext x='10' y='46' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='40' fill='%23F5F2ED'%3Ec%3C/text%3E%3Ccircle cx='47' cy='42' r='6' fill='%23E8481A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,500;0,600;0,700;0,900;1,300&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,500;0,600;0,700;0,900;1,300&family=Barlow:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Creativ Agency","description":"Agenzia creativa e digitale: social media management, produzione video, siti web, branding, digital advertising e automazioni AI.","email":"creativagencyy@gmail.com","telephone":"+39 339 248 8218","address":{"@type":"PostalAddress","addressLocality":"Chiavari","addressRegion":"GE","addressCountry":"IT"},"areaServed":{"@type":"Country","name":"Italia"},"founder":{"@type":"Person","name":"Leonardo Finis","jobTitle":"Founder & CEO"}}</script>
 <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('ca-theme')}catch(e){}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';d.dataset.theme=t;d.classList.add('js')})()</script>
 <style>
@@ -254,8 +254,12 @@ input[type=range]:hover::-webkit-slider-thumb,input[type=range]:focus-visible::-
 .pt{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.6rem 1rem;min-height:1.8rem}
 .pc h3,.bes h3{font-size:1.5rem;letter-spacing:.06em}
 .badge{padding:.42rem .75rem;border-radius:100px;background:var(--o);color:#fff;font:500 .62rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
-.pr{display:flex;align-items:baseline;flex-wrap:wrap;gap:.2rem .55rem;margin:1.7rem 0 .5rem;font:900 clamp(3.6rem,5.6vw,5.2rem)/1 var(--cd)}
-.pr small{font:400 .85rem Barlow,sans-serif;color:var(--m)}
+/* prezzi: cifra sottile ed editoriale, € piccolo in alto; le cifre salgono una a una quando i piani entrano in vista */
+.pr{display:flex;align-items:flex-end;flex-wrap:wrap;gap:.2rem .8rem;margin:1.4rem 0 .6rem;font:400 clamp(4.8rem,7.2vw,6.6rem)/1 'Instrument Serif',Georgia,serif;letter-spacing:-.025em}
+.pr small{margin-bottom:.7rem;font:400 .85rem Barlow,sans-serif;letter-spacing:0;color:var(--m)}
+.amt{display:flex;align-items:flex-start}.eur{margin:.14em .07em 0 0;font-size:.4em;font-style:italic;color:var(--o)}
+.dg{display:inline-block;overflow:hidden;padding-top:.1em;margin-top:-.1em}.dg>span{display:inline-block;transition:transform 1.1s var(--ease) calc(.2s + var(--i)*.09s)}
+@media (prefers-reduced-motion:no-preference){.js .pg:not(.v) .dg>span{transform:translateY(110%)}}
 .pc>p{color:var(--m)}
 .pc>p.up{margin-top:.9rem;padding:.6rem .9rem;border-radius:8px;background:rgba(232,72,26,.12);color:var(--t);font-size:.92rem}.up b{font-weight:500;color:var(--o2)}
 .pc ul,.bes ul{list-style:none;flex:1;margin:1.6rem 0 2rem}
@@ -279,7 +283,7 @@ input[type=range]:hover::-webkit-slider-thumb,input[type=range]:focus-visible::-
 .besg i:nth-child(2){width:50%;aspect-ratio:1;right:-10%;bottom:-55%;background:radial-gradient(circle,rgba(232,72,26,.6),transparent 65%);animation-duration:19s;animation-delay:-6s}
 .besg i:nth-child(3){width:30%;aspect-ratio:1;left:40%;top:5%;background:radial-gradient(circle,rgba(255,200,160,.35),transparent 65%);animation-duration:13s;animation-delay:-3s}
 @keyframes drift{to{transform:translate(18%,22%) scale(1.18)}}
-.bes .pr{font-size:clamp(3rem,4.6vw,4.3rem)}
+.bes .pr{font-size:clamp(3.4rem,5vw,4.8rem);font-style:italic}
 .besl,.besr{min-width:0}
 .besl>p{color:rgba(var(--tc),.8);max-width:34rem}
 .bes ul{margin-bottom:0}.bes li{border-color:rgba(var(--tc),.16)}.bes li:before{background:var(--t)}
@@ -608,6 +612,22 @@ form .btn{width:100%;height:3.8rem;margin-top:.6rem}
  .js .rv,.fade,h1 .ln>span{opacity:1;transform:none}
  .mq div{animation:none}
 }
+
+/* Servizi in 3D: le caselle salgono inclinate e "sbattono" una sopra l'altra, impilandosi mentre scorri */
+.sv{border-bottom:0;perspective:1500px;perspective-origin:50% 0;padding-bottom:10vh}
+.sv .srow{--i:0;position:sticky;top:calc(96px + var(--i)*16px);margin-top:1.6rem;border:1px solid var(--b2);border-radius:28px;
+ background:linear-gradient(165deg,rgba(var(--bg2c),.97),rgba(var(--bgc),.97));
+ box-shadow:inset 0 1px 0 var(--hi),0 5px 0 -1px #2a1208,0 10px 0 -2px #1a0b05,0 14px 0 -3px #100604,0 40px 70px -24px rgba(0,0,0,.75);
+ transform-origin:50% 100%;transform:translateY(var(--ty,0px)) rotateX(var(--rx,0deg)) scale(var(--sc,1));filter:brightness(var(--br,1));will-change:transform}
+.js .sv .srow.rv{transition:opacity .6s var(--ease),color .45s;transform:translateY(var(--ty,0px)) rotateX(var(--rx,0deg)) scale(var(--sc,1))}
+.js .sv .srow.rv:not(.v){opacity:0}
+.sv .srow.hit{animation:slam .5s cubic-bezier(.2,1.6,.4,1)}
+.sv .srow.hit2{animation:squash .45s ease-out}
+@keyframes slam{0%{translate:0 0}25%{translate:0 7px;scale:1.012 .975}55%{translate:0 -3px}100%{translate:0 0}}
+@keyframes squash{0%{translate:0 0}30%{translate:0 9px;scale:.99 .97}100%{translate:0 0}}
+[data-theme=light] .sv .srow{box-shadow:inset 0 1px 0 var(--hi),0 5px 0 -1px #d9c9b6,0 10px 0 -2px #cbb8a2,0 14px 0 -3px #bda78f,0 40px 70px -28px rgba(120,60,30,.35)}
+@media (max-width:760px){.sv .srow{top:calc(74px + var(--i)*12px);border-radius:22px;padding:1.5rem 1.1rem;margin-top:1.1rem}}
+@media (prefers-reduced-motion:reduce){.sv .srow{position:relative;top:auto;transform:none;filter:none}}
 </style>
 </head>
 <body>
@@ -918,8 +938,8 @@ form .btn{width:100%;height:3.8rem;margin-top:.6rem}
    Con entrambi, img fa da copertina (poster) finché il video non parte.
    ========================================================= */
 /* inc: riga iniziale in evidenza (es. "Tutto lo Starter, più:") */
-const PLANS=[{n:'Starter',p:450,d:'Video veri della tua attività, ogni settimana, senza pensarci tu.',f:['1 sessione di riprese al mese da te','8–10 Reels al mese, montati con sottotitoli e musica','Piano editoriale, testi e pubblicazione','Instagram e Facebook','Profilo sistemato all’avvio: bio, copertine e storie in evidenza','Report mensile con i numeri reali']},
-{n:'Growth',p:790,d:'Più video, più canali e la pubblicità che porta nuovi clienti.',inc:'Tutto lo Starter, più:',f:['12–15 Reels al mese, con 2 sessioni di riprese','Anche TikTok, oltre a Instagram e Facebook','Stories 3 volte a settimana','Gestione di commenti e messaggi','1 campagna Meta Ads al mese gestita da noi (budget pubblicitario escluso)','Call mensile per pianificare insieme il mese successivo']}];
+const PLANS=[{n:'Starter',p:450,d:'Video veri della tua attività, ogni settimana, senza pensarci tu.',f:['Riprese nella tua attività, fatte da noi','8–10 Reels al mese, montati con sottotitoli e musica','Piano editoriale, testi e pubblicazione','Instagram e Facebook','Profilo sistemato all’avvio: bio, copertine e storie in evidenza','Report mensile con i numeri reali']},
+{n:'Growth',p:790,d:'Più video, più canali e la pubblicità che porta nuovi clienti.',inc:'Tutto lo Starter, più:',f:['12–15 Reels al mese','Anche TikTok, oltre a Instagram e Facebook','Stories 3 volte a settimana','Gestione di commenti e messaggi','1 campagna Meta Ads al mese gestita da noi (budget pubblicitario escluso)','Call mensile per pianificare insieme il mese successivo']}];
 
 /* "Trova il tuo piano": la scelta è in qzPick() */
 const QUIZ=[
@@ -997,7 +1017,7 @@ pd.addEventListener('click',e=>{if(e.target===pd)closePd()});
 
 /* --- piani --- */
 const slug=n=>'pl-'+n.toLowerCase().replace(/\s+/g,'-');
-$('#pg').innerHTML=PLANS.map((x,i)=>`<div class="pc${i?' hl':''}" id="${slug(x.n)}" data-spot><div class="pt"><h3>${x.n}</h3>${i?'<span class="badge">Consigliato</span>':''}</div><div class="pr">${eu(x.p)}<small>/mese + IVA</small></div><p>${x.d}</p>${i?`<p class="up">Solo <b>${eu(x.p-PLANS[0].p)}</b> in più al mese rispetto allo ${PLANS[0].n}</p>`:''}<ul>${x.inc?`<li class="inc">${x.inc}</li>`:''}${x.f.map(l=>`<li>${l}</li>`).join('')}</ul><a class="btn${i?'':' g'}" href="#contatto" data-s="${x.n}">${tx('Scelgo '+x.n)}</a></div>`).join('');
+$('#pg').innerHTML=PLANS.map((x,i)=>`<div class="pc${i?' hl':''}" id="${slug(x.n)}" data-spot><div class="pt"><h3>${x.n}</h3>${i?'<span class="badge">Consigliato</span>':''}</div><div class="pr"><span class="sr">${eu(x.p)}</span><span class="amt" aria-hidden="true"><span class="eur">€</span>${String(x.p).split('').map((d,j)=>`<span class="dg" style="--i:${j}"><span>${d}</span></span>`).join('')}</span><small>/mese + IVA</small></div><p>${x.d}</p>${i?`<p class="up">Solo <b>${eu(x.p-PLANS[0].p)}</b> in più al mese rispetto allo ${PLANS[0].n}</p>`:''}<ul>${x.inc?`<li class="inc">${x.inc}</li>`:''}${x.f.map(l=>`<li>${l}</li>`).join('')}</ul><a class="btn${i?'':' g'}" href="#contatto" data-s="${x.n}">${tx('Scelgo '+x.n)}</a></div>`).join('');
 const fillMsg=t=>{$('#msg').value=t};
 
 /* --- su misura: il visitatore compone i servizi, che finiscono nel messaggio --- */
@@ -1326,6 +1346,21 @@ if(RM){for(let i=0;i<120;i++)step(8+i/60);draw(8);
  /* movimento ridotto: nessuna animazione, ma lo sfondo passa comunque alla versione smerigliata scorrendo */
  let pend=false;addEventListener('scroll',()=>{if(pend)return;pend=true;requestAnimationFrame(()=>{pend=false;dz=dzT();draw(8)})},{passive:true})}
 else start();})();
+
+// Servizi: casselle a blocchi 3D impilate allo scorrimento
+(function(){var sv=document.getElementById('sv');if(!sv||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+var rows=[].slice.call(sv.querySelectorAll('.srow')),landed=rows.map(function(){return false}),tick=false;
+rows.forEach(function(r,i){r.style.setProperty('--i',i)});
+function bump(el,c){el.classList.remove(c);void el.offsetWidth;el.classList.add(c)}
+function upd(){tick=false;var vh=innerHeight;
+ rows.forEach(function(r,i){var top=parseFloat(getComputedStyle(r).top)||0,rc=r.getBoundingClientRect(),d=rc.top-top,
+  p=Math.max(0,Math.min(1,1-d/(vh*.55))),k=1-p,rx=i?28*k*k:0,ty=i?-30*k*k:0,
+  nx=rows[i+1],cov=0;
+  if(nx){var nt=parseFloat(getComputedStyle(nx).top)||0,nd=nx.getBoundingClientRect().top-nt;cov=Math.max(0,Math.min(1,1-nd/(rc.height+40)))}
+  r.style.setProperty('--rx',rx.toFixed(2)+'deg');r.style.setProperty('--ty',ty.toFixed(1)+'px');
+  r.style.setProperty('--sc',(1-.06*cov).toFixed(4));r.style.setProperty('--br',(1-.45*cov).toFixed(3));
+  var on=d<=1.5;if(on&&!landed[i]&&i){bump(r,'hit');bump(rows[i-1],'hit2')}landed[i]=on})}
+addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd()})();
 </script>
 </body>
 </html>

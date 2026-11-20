@@ -15,7 +15,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D0D0D'/%3E%3Ctext x='10' y='46' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='40' fill='%23F5F2ED'%3Ec%3C/text%3E%3Ccircle cx='47' cy='42' r='6' fill='%23E8481A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,500;0,600;0,700;0,900;1,300&family=Barlow:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,500;0,600;0,700;0,900;1,300&family=Barlow:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Creativ Agency","description":"Agenzia creativa e digitale: social media management, produzione video, siti web, branding, digital advertising e automazioni AI.","email":"creativagencyy@gmail.com","telephone":"+39 339 248 8218","address":{"@type":"PostalAddress","addressLocality":"Chiavari","addressRegion":"GE","addressCountry":"IT"},"areaServed":{"@type":"Country","name":"Italia"},"founder":{"@type":"Person","name":"Leonardo Finis","jobTitle":"Founder & CEO"}}</script>
 <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('ca-theme')}catch(e){}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';d.dataset.theme=t;d.classList.add('js');var i;try{i=sessionStorage.getItem('ca-in')}catch(e){}if(!i&&!matchMedia('(prefers-reduced-motion:reduce)').matches)d.classList.add('intro')})()</script>
 <style>
@@ -1079,6 +1079,66 @@ body:before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;bac
  .aic{border-radius:26px}
 }
 @media (prefers-reduced-motion:reduce){.aids b,.ain.act .aio,.aid.s5 .aiok,.aiw path,.aiq{animation:none!important}}
+
+/* ================= REDESIGN 2026-11 · sistema e mobile ================= */
+:root{--fs-h2:clamp(2.6rem,1.6rem + 5.6vw,7rem);--fs-lead:clamp(1.02rem,.96rem + .3vw,1.2rem);--fs-lab:clamp(.72rem,.7rem + .1vw,.76rem);--tap:2.75rem;--hdr:128px}
+/* tipografia fluida: titoli che non schiacciano i 320px e non esplodono sui 1920px */
+h2{font-size:var(--fs-h2)}
+.lead,.hs{font-size:var(--fs-lead)}
+.lab{font-size:var(--fs-lab)}
+h1,h2,h3{text-wrap:balance}
+.lead,.hs,.sd p{text-wrap:pretty}
+/* comparsa allo scroll più rapida: niente schermate vuote */
+.js .rv{transform:translateY(26px);transition-duration:.85s}
+
+/* menu mobile: più ordinato, con CTA e contatti a portata di pollice */
+#menu{gap:2rem;overflow-y:auto;overscroll-behavior:contain;padding:calc(6.2rem + env(safe-area-inset-top)) var(--g) calc(1.4rem + env(safe-area-inset-bottom));background:radial-gradient(120% 55% at 100% 0%,rgba(232,72,26,.16),transparent 62%),var(--bg)}
+#menu nav{display:grid}
+#menu nav a{justify-content:space-between;align-items:center;gap:1rem;min-height:3.1rem;padding:.35rem 0;border-bottom:1px solid var(--b);font:900 clamp(1.85rem,8.4vw,3.1rem)/1 var(--cd);transition:color .3s}
+#menu nav a>span{align-items:center}
+#menu nav small{min-width:1.6rem;font-size:.7rem}
+#menu nav a.on{color:var(--o)}
+#menu .ma{flex:none;width:1.15rem;height:1.15rem;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;color:var(--m);opacity:0;transform:translate(-8px,8px);transition:opacity .5s,transform .6s var(--ease)}
+#menu.o .ma{opacity:1;transform:none;transition-delay:calc(.3s + var(--i)*.05s)}
+#menu .mf{gap:.8rem}
+#menu .mf .btn{width:100%}
+.mfc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem}
+.mfc a{display:grid;place-items:center;min-height:var(--tap);border:1px solid var(--b2);border-radius:100px;font:500 .72rem/1 Barlow,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--t);transition:border-color .3s,background .3s}
+.mfc a:first-child{border-color:rgba(37,211,102,.5)}
+.mfc a:hover{border-color:var(--o)}
+.mfn{text-align:center;font:500 .68rem/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--m)}
+/* con il menu aperto spariscono barra rapida e barra in basso */
+body.lock .nav .qn{opacity:0!important;pointer-events:none!important}
+body.lock #sb{transform:translateY(110%)}
+
+@media (max-width:1060px){
+ /* barra rapida: pulsanti da 40px, mai tagliati (se serve scorre) */
+ #qn{overflow-x:auto;scrollbar-width:none;gap:.35rem;padding:.4rem var(--g) .5rem}
+ #qn::-webkit-scrollbar{display:none}
+ #qn a{flex:1 0 auto;display:grid;place-items:center;min-height:2.5rem;padding:0 .7rem;letter-spacing:.07em;font-size:.68rem}
+ html{scroll-padding-top:0}section[id]{scroll-margin-top:7.75rem}
+ /* i numeri delle FAQ condividono la classe qn: non devono diventare la barra rapida */
+ /* servizi: le card si fermano sotto header + barra rapida, ed è opaca (niente testo che traspare) */
+ .sv .srow{top:calc(var(--hdr) + var(--i)*11px)}
+}
+.sv .srow{background:linear-gradient(165deg,rgb(var(--bg2c)),rgb(var(--bgc)))}
+@media (min-width:641px){.fq summary .qn{position:static;display:block;opacity:1;transform:none;padding:0;border:0;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;pointer-events:none}}
+
+/* bersagli touch comodi */
+.fcols a{padding:.5rem 0;line-height:1.5}
+.fb a{display:inline-block;padding:.65rem 0}
+.sqd a,.pinfa a{display:inline-block;padding:.45rem 0}
+.wbr{min-height:var(--tap)}
+.logo{padding-block:.45rem}
+.links a{padding:.75rem 1rem}
+
+@media (max-width:640px){
+ .hmeta{font-size:.7rem}
+ .fcols>div:last-child{display:grid;grid-template-columns:1fr 1fr;column-gap:1rem}.fcols>div:last-child h4{grid-column:1/-1}
+ #sb{padding-block:.55rem calc(.55rem + env(safe-area-inset-bottom))}
+ #sb .btn{min-height:3.1rem}#sb .wa{width:3.1rem;height:3.1rem}
+}
+@media (max-width:360px){#menu nav a{min-height:2.85rem}#qn a{padding:0 .55rem;letter-spacing:.05em}}
 </style>
 </head>
 <body>
@@ -1094,24 +1154,28 @@ body:before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;bac
  <nav class="links" aria-label="Principale"><a href="#servizi">Servizi</a><a href="#siti">Siti web</a><a href="#ai">AI</a><a href="#lavori">Video</a><a href="#prezzi">Piani</a><a href="#consiglio">Consiglio</a><a href="#metodo">Metodo</a><a href="#faq">FAQ</a></nav>
  <div class="nr">
   <button id="tg" type="button" aria-label="Attiva il tema chiaro"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg></button>
-  <a class="btn sm mag" href="#contatto"><span class="tx"><span>Richiedi preventivo</span></span></a>
+  <a class="btn sm mag" href="#contatto"><span class="tx"><span>Audit gratuito</span></span></a>
   <button id="hb" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
  </div>
 </header>
 
 <div id="menu" inert>
  <nav aria-label="Menu mobile">
-  <a href="#servizi" style="--i:0"><span><small>01</small>Servizi</span></a>
-  <a href="#siti" style="--i:1"><span><small>02</small>Siti web</span></a>
-  <a href="#ai" style="--i:2"><span><small>03</small>AI &amp; Automazioni</span></a>
-  <a href="#lavori" style="--i:3"><span><small>04</small>Video e social</span></a>
-  <a href="#prezzi" style="--i:4"><span><small>05</small>Piani</span></a>
-  <a href="#consiglio" style="--i:5"><span><small>06</small>Consiglio</span></a>
-  <a href="#metodo" style="--i:6"><span><small>07</small>Metodo</span></a>
-  <a href="#faq" style="--i:7"><span><small>08</small>Domande</span></a>
-  <a href="#contatto" style="--i:8"><span><small>09</small>Contatti</span></a>
+  <a href="#servizi" style="--i:0"><span><small>01</small>Servizi</span><svg class="ma" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  <a href="#siti" style="--i:1"><span><small>02</small>Siti web</span><svg class="ma" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  <a href="#ai" style="--i:2"><span><small>03</small>AI e automazioni</span><svg class="ma" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  <a href="#lavori" style="--i:3"><span><small>04</small>Video e social</span><svg class="ma" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  <a href="#prezzi" style="--i:4"><span><small>05</small>Piani</span><svg class="ma" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  <a href="#consiglio" style="--i:5"><span><small>06</small>Consiglio</span><svg class="ma" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  <a href="#metodo" style="--i:6"><span><small>07</small>Metodo</span><svg class="ma" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  <a href="#faq" style="--i:7"><span><small>08</small>Domande</span><svg class="ma" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  <a href="#contatto" style="--i:8"><span><small>09</small>Contatti</span><svg class="ma" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
  </nav>
- <div class="mf"><a href="mailto:creativagencyy@gmail.com">creativagencyy@gmail.com</a><a href="tel:+393392488218">+39 339 248 8218</a></div>
+ <div class="mf">
+  <a class="btn" href="#contatto"><span class="tx"><span>Richiedi l’audit gratuito</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <div class="mfc"><a href="https://wa.me/393392488218?text=Ciao%20Creativ%20Agency%2C%20vorrei%20informazioni" target="_blank" rel="noopener">WhatsApp</a><a href="tel:+393392488218">Chiama</a><a href="mailto:creativagencyy@gmail.com">Email</a></div>
+  <p class="mfn">Chiavari (GE) · operiamo in tutta Italia</p>
+ </div>
 </div>
 
 <main id="main">
@@ -1167,12 +1231,12 @@ body:before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;bac
      <div class="wbk wbn" data-l="menu"><i class="lg"></i><span class="wbm tx">Menù</span><span class="wbm tx">Chi siamo</span><span class="wbm tx">Recensioni</span><span class="wbm tx">Contatti</span><i class="ct"></i></div>
      <div class="wbhe">
       <div class="wbk wbht" data-l="titolo + bottone"><span class="wbey tx">Osteria di mare · dal porto</span><b class="wbh"><span>Cucina<br>di mare</span></b><i class="wbl"></i><i class="wbl s"></i><span class="wbsr">★★★★★<em class="tx">Recensioni Google</em></span><span class="wbbts"><span class="wbbt">Prenota un tavolo</span><span class="wbbt o">Vedi il menù</span></span></div>
-      <div class="wbk wbim" data-l="foto"><img src="media/web-camogli.jpg" alt="" loading="lazy"></div>
+      <div class="wbk wbim" data-l="foto"><img src="media/web-camogli.jpg" alt="" loading="lazy" decoding="async"></div>
      </div>
      <div class="wbk wbmn" data-l="menù"><b class="wbs2"><span class="tx">Il menù di oggi</span></b><div class="wbco">
-      <div><span class="wbth"><img src="media/web-pesto.jpg" alt="" loading="lazy"></span><span class="wbdn"><span class="tx">Trofie al pesto</span><span class="tx wbpz">€ 14</span></span><i class="wbl s"></i></div>
-      <div><span class="wbth"><img src="media/web-scoglio.jpg" alt="" loading="lazy"></span><span class="wbdn"><span class="tx">Spaghetti allo scoglio</span><span class="tx wbpz">€ 18</span></span><i class="wbl s"></i></div>
-      <div><span class="wbth"><img src="media/web-focaccia.jpg" alt="" loading="lazy"></span><span class="wbdn"><span class="tx">Focaccia al formaggio</span><span class="tx wbpz">€ 10</span></span><i class="wbl s"></i></div>
+      <div><span class="wbth"><img src="media/web-pesto.jpg" alt="" loading="lazy" decoding="async"></span><span class="wbdn"><span class="tx">Trofie al pesto</span><span class="tx wbpz">€ 14</span></span><i class="wbl s"></i></div>
+      <div><span class="wbth"><img src="media/web-scoglio.jpg" alt="" loading="lazy" decoding="async"></span><span class="wbdn"><span class="tx">Spaghetti allo scoglio</span><span class="tx wbpz">€ 18</span></span><i class="wbl s"></i></div>
+      <div><span class="wbth"><img src="media/web-focaccia.jpg" alt="" loading="lazy" decoding="async"></span><span class="wbdn"><span class="tx">Focaccia al formaggio</span><span class="tx wbpz">€ 10</span></span><i class="wbl s"></i></div>
      </div></div>
      <div class="wbk wbrv" data-l="recensioni"><b class="wbs2"><span class="tx">Dicono di noi</span></b><div class="wbrc">
       <div><span class="wbsr">★★★★★</span><i class="wbl"></i><i class="wbl"></i><i class="wbl s"></i><span class="wbav"><i></i><i class="wbl s"></i></span></div>
@@ -1188,18 +1252,18 @@ body:before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;bac
     </div></div>
    </div>
    <div class="wbsw"><i></i><i></i><i></i></div>
-   <div class="wbph"><div class="wbpn"><i class="wbp1"></i><div class="wbp2"><img src="media/web-camogli.jpg" alt="" loading="lazy"><b>Cucina<br>di mare</b></div><div class="wbp3"><span><img src="media/web-pesto.jpg" alt="" loading="lazy"></span><span><img src="media/web-scoglio.jpg" alt="" loading="lazy"></span></div><span class="wbpb">Prenota un tavolo</span><span class="wbwa"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 19z"/></svg></span></div></div>
+   <div class="wbph"><div class="wbpn"><i class="wbp1"></i><div class="wbp2"><img src="media/web-camogli.jpg" alt="" loading="lazy" decoding="async"><b>Cucina<br>di mare</b></div><div class="wbp3"><span><img src="media/web-pesto.jpg" alt="" loading="lazy" decoding="async"></span><span><img src="media/web-scoglio.jpg" alt="" loading="lazy" decoding="async"></span></div><span class="wbpb">Prenota un tavolo</span><span class="wbwa"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 19z"/></svg></span></div></div>
    <div class="wbto"><span class="wbti"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 19z"/></svg></span><span><b>Nuova prenotazione dal sito</b><small>“Tavolo per 4, sabato alle 20:30”</small></span></div>
   </div>
  </div>
  <div class="wfx" id="wfx">
   <div class="wfp"><div class="wfph" aria-hidden="true"><i class="wfn"></i>
    <div class="wfs on"><small>Il tuo stile</small><div class="wf0c"><i></i><i></i><i></i><i></i></div><b class="wf0a">Aa</b><div class="wf0f"><span>Titoli</span><span>Testi</span></div><span class="wfbt">Il tuo pulsante</span></div>
-   <div class="wfs wf1"><img src="media/web-camogli.jpg" alt="" loading="lazy"><div><small>Osteria di mare</small><b>Cucina<br>di mare</b><span class="wfbt">Prenota un tavolo</span></div></div>
+   <div class="wfs wf1"><img src="media/web-camogli.jpg" alt="" loading="lazy" decoding="async"><div><small>Osteria di mare</small><b>Cucina<br>di mare</b><span class="wfbt">Prenota un tavolo</span></div></div>
    <div class="wfs wf2"><svg viewBox="0 0 48 48"><path d="M27 4L11 27h12l-2 17 16-23H25z"/></svg><b>Si apre subito</b><i class="wf2b"><i></i></i><small>anche con poca rete</small></div>
    <div class="wfs wf3"><div class="wf3s"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>ristorante sul mare</span></div><div class="wf3r"><small>tuaattivita.it</small><b>Cucina di mare · Osteria dal porto</b><i></i><i></i></div><div class="wf3r d"><i></i><i></i><i></i></div><div class="wf3r d"><i></i><i></i><i></i></div></div>
    <div class="wfs wf4"><small>Contattaci</small><div><span class="wa"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 19z"/></svg>WhatsApp</span><span><svg viewBox="0 0 24 24"><path d="M6 3h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>Chiama</span><span><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.800-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Mappa</span><span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Scrivici</span></div></div>
-   <div class="wfs wf5"><div><span><img src="media/web-pesto.jpg" alt="" loading="lazy"></span><span class="pl"><img src="media/web-terrazza.jpg" alt="" loading="lazy"></span><span><img src="media/web-scoglio.jpg" alt="" loading="lazy"></span><span><img src="media/web-focaccia.jpg" alt="" loading="lazy"></span></div><b>I nostri piatti</b><i></i><i></i></div>
+   <div class="wfs wf5"><div><span><img src="media/web-pesto.jpg" alt="" loading="lazy" decoding="async"></span><span class="pl"><img src="media/web-terrazza.jpg" alt="" loading="lazy" decoding="async"></span><span><img src="media/web-scoglio.jpg" alt="" loading="lazy" decoding="async"></span><span><img src="media/web-focaccia.jpg" alt="" loading="lazy" decoding="async"></span></div><b>I nostri piatti</b><i></i><i></i></div>
   </div></div>
   <ol class="wfl">
    <li class="on"><span>01</span><h3>Design su misura</h3><p>Disegnato sulla tua attività, non adattato da un modello già pronto.</p></li>
@@ -1515,12 +1579,12 @@ $('#mqi').innerHTML=[...MQ,...MQ].map(s=>`<span>${s}</span>`).join('');
 $('#sv').innerHTML=SERVICES.map((s,i)=>`<a class="srow rv" href="${s.h||'#contatto'}" data-s="${s.t}" data-spot><span class="sn">0${i+1}</span><span><h3>${s.t}</h3><em>${s.g}</em></span><span class="sd"><p>${s.d}</p><p class="sb"><b>Per te</b>${s.b}</p></span><span class="si" aria-hidden="true"><svg viewBox="0 0 48 48">${s.ic}</svg></span></a>`).join('');
 
 /* --- portfolio --- */
-const media=(p,big)=>p.video?(big?`<video src="${p.video}"${p.img?` poster="${p.img}"`:''} controls playsinline autoplay aria-label="${p.c}: ${p.s}"></video>`:`<video src="${p.video}"${p.img?` poster="${p.img}"`:''} muted loop playsinline preload="metadata" aria-label="${p.c}: ${p.s}"></video>`)
- :p.img?`<img src="${p.img}" alt="${p.c}: ${p.s}" loading="lazy">`
+const media=(p,big)=>p.video?(big?`<video src="${p.video}"${p.img?` poster="${p.img}"`:''} controls playsinline autoplay aria-label="${p.c}: ${p.s}"></video>`:`<video src="${p.video}"${p.img?` poster="${p.img}"`:''} muted loop playsinline preload="none" aria-label="${p.c}: ${p.s}"></video>`)
+ :p.img?`<img src="${p.img}" alt="${p.c}: ${p.s}" loading="lazy" decoding="async">`
  :`<div class="ph" role="img" aria-label="${p.c}: ${p.s}" style="--gx:${p.gx};--gy:${p.gy}"><span class="phl">${p.ini}</span>${p.k=='web'?'<div class="browser"><i></i><i></i><i></i><i></i><i></i><i></i></div>':p.k=='social'?'<div class="tiles">'+'<i></i>'.repeat(9)+'</div>':'<div class="phone"></div>'}</div>`;
 /* pile 3D: si vede il primo elemento, gli altri dietro; toccandolo si aprono tutti insieme, poi ognuno apre la sua scheda */
 const pd=$('#pd');
-const shotM=p=>`<div class="shot"><img src="${p.shot}" alt="${p.c}: anteprima del sito da telefono" loading="lazy"></div>`;
+const shotM=p=>`<div class="shot"><img src="${p.shot}" alt="${p.c}: anteprima del sito da telefono" loading="lazy" decoding="async"></div>`;
 function makeStack(id,items,label,kind){const R=$('#'+id),C=$('#'+id.replace('stk','stkc')),B=$('#'+id.replace('stk','stkr'));
  C.innerHTML=items.map((p,i)=>`<article class="stc" style="--k:${i};z-index:${items.length-i}"><button class="pjb" type="button" data-i="${i}"><div class="pm${p.shot&&!p.video?' ps':''}">${p.shot&&!p.video?shotM(p):media(p)}<span class="sci"><span class="kd${p.g=='Cliente'?' kdc':''}">${p.g||KIND[p.k]}</span><b>${p.c}</b><small>${p.s}</small></span></div></button></article>`).join('');
  $('#'+id.replace('stk','stkn')).textContent=items.length+' '+label;
@@ -1684,7 +1748,7 @@ mt.innerHTML=mt.textContent.trim().split(/\s+/).map(w=>{const a=w[0]=='*';return
 const words=$$('.wd',mt);
 
 /* --- reveal --- */
-const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');io.unobserve(x.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');io.unobserve(x.target)}}),{threshold:0,rootMargin:'0px 0px -8% 0px'});
 $$('.rv').forEach(e=>io.observe(e));
 
 /* --- contatori --- */
@@ -1693,7 +1757,7 @@ const cio=new IntersectionObserver(es=>es.forEach(x=>{if(!x.isIntersecting)retur
 $$('[data-n]').forEach(e=>cio.observe(e));
 
 /* --- link attivo in navigazione --- */
-const lio=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)$$('.links a,#qn a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')=='#'+x.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+const lio=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)$$('.links a,#qn a,#menu nav a').forEach(a=>{const on=a.getAttribute('href')=='#'+x.target.id;a.classList.toggle('on',on);if(on&&a.parentElement.id=='qn'&&innerWidth<=1060){const q=a.parentElement;q.scrollTo({left:a.offsetLeft-(q.clientWidth-a.offsetWidth)/2,behavior:RM?'auto':'smooth'})}})}),{rootMargin:'-45% 0px -50% 0px'});
 ['servizi','siti','ai','lavori','prezzi','consiglio','metodo','faq','contatto'].forEach(id=>{const e=document.getElementById(id);if(e)lio.observe(e)});
 
 /* --- spotlight e pulsanti magnetici (solo mouse) --- */
